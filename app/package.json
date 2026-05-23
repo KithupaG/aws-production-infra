@@ -1,0 +1,26 @@
+{
+  "name": "aws-note-taker-app",
+  "version": "1.0.0",
+  "description": "Production-grade Note Taker app for AWS deployment testing",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix src/backend && npm install --prefix src/frontend",
+    "dev:backend": "npm run dev --prefix src/backend",
+    "dev:frontend": "npm run dev --prefix src/frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:frontend": "npm run build --prefix src/frontend",
+    "start:backend": "npm start --prefix src/backend"
+  },
+  "keywords": [
+    "aws",
+    "devops",
+    "notes",
+    "react",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

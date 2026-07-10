@@ -179,7 +179,7 @@ See the [Terraform modules](modules/) for the infrastructure definitions.
 This project is documented as a Dev.to blog series:
 
 1. [Part 1: Building a Production Grade AWS Infrastructure Project](https://dev.to/trenation/building-a-production-grade-aws-infrastructure-project-part-1-5ceb)
-2. [Part 2: Building a Production Grade AWS Infrastructure Project: Containerization]([blog/part-2-containerization.md](https://dev.to/trenation/building-a-production-grade-aws-infrastructure-project-part-2-containerization-pkg))
+2. [Part 2: Building a Production Grade AWS Infrastructure Project: Containerization](https://dev.to/trenation/building-a-production-grade-aws-infrastructure-project-part-2-containerization-pkg)
 
 ## License
 

@@ -5,32 +5,32 @@ A full-stack Note Taker application designed as a sandbox for building productio
 ## Architecture
 
 ```
-                        ┌─────────────────────────────────┐
+                        ┌──────────────────────────────────┐
                         │         AWS Cloud (Target)       │
                         │                                  │
                         │   Route53 ─── CloudFront ─── S3  │
-                        │                    │              │
-                        │                    ▼              │
+                        │                    │             │
+                        │                    ▼             │
                         │        ┌─────── ALB ───────┐     │
                         │        │                   │     │
-                        │   ┌────▼────┐        ┌────▼────┐│
-                        │   │ EC2 ASG │        │ EC2 ASG ││
-                        │   │ (Backend)│        │(Backend)││
-                        │   └────┬────┘        └────┬────┘│
-                        │        │                   │     │
-                        │        └────────┬──────────┘     │
+                        │   ┌────▼────┐        ┌────▼────┐ │
+                        │   │ EC2 ASG │        │ EC2 ASG │ │
+                        │   │(Backend)│        │(Backend)│ │
+                        │   └────┬────┘        └────┬────┘ │
+                        │        │                  │      │
+                        │        └────────┬─────────┘      │
                         │                 ▼                │
-                        │           ┌──── RDS ────┐       │
-                        │           │  PostgreSQL  │       │
-                        │           └─────────────┘       │
-                        └─────────────────────────────────┘
+                        │           ┌──── RDS ────┐        │
+                        │           │  PostgreSQL │        │
+                        │           └─────────────┘        │
+                        └──────────────────────────────────┘
 
 Local (Docker Compose):
-┌──────────┐    ┌───────────┐    ┌──────────────┐
+┌──────────┐    ┌────────────┐    ┌──────────────┐
 │ Frontend │───▶│  Backend  │───▶│  PostgreSQL  │
-│ (Nginx)  │    │ (Node.js) │    │ (15-alpine)  │
-│  :3000   │    │  :5001    │    │   :5432      │
-└──────────┘    └───────────┘    └──────────────┘
+│ (Nginx)  │    │ (Node.js)  │    │ (15-alpine)  │
+│  :3000   │    │  :5001     │    │   :5432      │
+└──────────┘    └────────────┘    └──────────────┘
 ```
 
 ## Tech Stack
@@ -178,8 +178,8 @@ See the [Terraform modules](modules/) for the infrastructure definitions.
 
 This project is documented as a Dev.to blog series:
 
-1. [Part 1: Project Introduction](REPLACE_WITH_LINK) *(coming soon)*
-2. [Part 2: Containerization](blog/part-2-containerization.md)
+1. [Part 1: Building a Production Grade AWS Infrastructure Project](https://dev.to/trenation/building-a-production-grade-aws-infrastructure-project-part-1-5ceb)
+2. [Part 2: Building a Production Grade AWS Infrastructure Project: Containerization]([blog/part-2-containerization.md](https://dev.to/trenation/building-a-production-grade-aws-infrastructure-project-part-2-containerization-pkg))
 
 ## License
 

@@ -79,3 +79,5 @@ Terraform plan output files
 Terraform variable files containing sensitive data
 *.tfvars
 *.tfvars.json
+
+blog/

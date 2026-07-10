@@ -1,6 +1,4 @@
-# =============================================================================
-# AWS Production Infra Note Taker - Git Ignore Configuration
-# =============================================================================
+# AWS Production Infra Note Taker - GitIgnore Configuration
 
 # Dependency Directories
 node_modules/
@@ -69,3 +67,15 @@ coverage/
 .parcel-cache
 .cache/
 .vite/
+
+# Terraform State Files (if applicable)
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+Terraform plan output files
+*.tfplan
+
+Terraform variable files containing sensitive data
+*.tfvars
+*.tfvars.json

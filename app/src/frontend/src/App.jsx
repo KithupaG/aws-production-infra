@@ -493,7 +493,7 @@ function App() {
         </div>
       </footer>
     </div>
-  );
+  );2
 }
 
 export default App;

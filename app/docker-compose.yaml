@@ -1,0 +1,51 @@
+name: note-taker
+
+services:
+  backend:
+    build: ./src/backend
+    restart: unless-stopped
+    ports:
+      - "5001:5000" # localhost 5000:container port 5000
+    environment:
+      NODE_ENV: production
+      PGHOST: database
+      PGUSER: postgres
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: notetaker
+      PGPORT: 5432
+      PGSSL: false
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - app-network
+  database:
+    image: postgres:15-alpine
+    container_name: production_db
+    environment:
+      POSTGRES_DB: notetaker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d notetaker"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  frontend:
+    build: ./src/frontend
+    ports:
+      - 3000:80
+    depends_on: 
+      - backend
+    networks:
+      - app-network
+volumes:
+  db-data:
+networks:
+  app-network: 

@@ -26,9 +26,9 @@ async function initialize() {
           database: process.env.PGDATABASE,
           port: parseInt(process.env.PGPORT || '5432', 10),
           // Production TLS/SSL settings for AWS RDS
-          ssl: process.env.PGSSL === 'true' || process.env.NODE_ENV === 'production'
-            ? { rejectUnauthorized: false } // Set rejectUnauthorized: true if CA cert is provided
-            : false
+          ssl: process.env.PGSSL === 'true' ? { rejectUnauthorized: false }
+          : process.env.PGSSL === 'false' ? false
+          : process.env.NODE_ENV === 'production' ? { rejectUnauthorized : false } : false 
         };
 
     pgPool = new Pool({

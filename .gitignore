@@ -81,3 +81,5 @@ Terraform variable files containing sensitive data
 *.tfvars.json
 
 blog/
+
+project.txt

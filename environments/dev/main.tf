@@ -7,6 +7,8 @@ module "dev_app_vpc" {
   private_subnet_cidr = var.private_subnet_cidr
 }
 
+
+
 output "dev_vpc_id" {
   value = module.dev_app_vpc.vpc_id
 }

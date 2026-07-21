@@ -7,8 +7,14 @@ module "dev_app_vpc" {
   private_subnet_cidr = var.private_subnet_cidr
 }
 
-
-
 output "dev_vpc_id" {
   value = module.dev_app_vpc.vpc_id
+}
+
+module "dev_sg" {
+  source = "../../modules/security"
+
+  vpc_id          = module.dev_app_vpc.vpc_id
+  cidr_cidr_block = var.vpc_cidr
+  environment     = var.environment
 }

@@ -1,5 +1,6 @@
 module "iam_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-role"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role"
+  version = "6.0"
 
   name = "app-execution-role"
 

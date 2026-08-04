@@ -7,10 +7,10 @@ module "alb" {
 
   name    = "main-alb"
   vpc_id  = var.vpc_id
-  subnets = [var.subnet_ids]
+  subnets = var.subnet_ids
 
   # Security Group
-  security_group_ingress_rules = [var.alb_sg]
+  security_groups = [var.alb_sg]
 
   #   access_logs = {
   #     bucket = "my-alb-logs"
@@ -21,9 +21,7 @@ module "alb" {
       port     = 80
       protocol = "HTTP"
       forward = {
-        port        = "443"
-        protocol    = "HTTPS"
-        status_code = "HTTP_301"
+        target_group_key = "ex-instance"
       }
     }
   }

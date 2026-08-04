@@ -25,3 +25,11 @@ module "dev_rds" {
   security_group = module.dev_sg.main_sg
   subnet_ids     = module.dev_app_vpc.private_subnets
 }
+
+module "dev_alb" {
+  source = "../../modules/alb"
+
+  alb_sg     = module.dev_sg.main_sg
+  subnet_ids = module.dev_app_vpc.private_subnets
+  vpc_id     = module.dev_app_vpc.vpc_id
+}
